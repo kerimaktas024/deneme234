@@ -135,6 +135,8 @@ def veri_cek(driver, ogeler):
 def main():
     # Kullanıcıdan JSON dosyasının kaydedileceği dizini al
     output_dir = input("Lütfen JSON dosyasının kaydedileceği dizini tam yol olarak girin: ")
+    # Eğer kullanıcı tırnak (" veya ') ile çevrelemişse, temizle
+    output_dir = output_dir.strip().strip('"\'')
     if not os.path.isdir(output_dir):
         os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, OUTPUT_DOSYA)
